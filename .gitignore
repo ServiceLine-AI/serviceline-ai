@@ -1,0 +1,8 @@
+.DS_Store
+  *.docx                                                                                                    
+  node_modules/                                                                    
+  .claude/
+  templates/
+  *.txt
+  PLAN.md
+  Ulio Guide - Interactive.html
