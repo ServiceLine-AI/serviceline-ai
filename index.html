@@ -435,39 +435,83 @@ body {
   background-color: var(--bg-secondary);
   overflow: hidden;
   position: relative;
-  z-index: 0;
 }
 
-.faq-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .faq-item {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .faq-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   border-color: var(--accent-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
-.faq-item h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
+.faq-item[open] {
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.faq-item summary {
+  padding: 20px 24px;
+  font-size: 1.15rem;
+  font-weight: 600;
   color: var(--primary-color);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--accent-color);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 12px;
 }
 
 .faq-item p {
+  padding: 0 24px 20px;
   color: var(--text-light);
   font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.faq-item[open] p {
+  animation: faq-reveal 0.3s ease-out;
+}
+
+@keyframes faq-reveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* CTA Section */
@@ -477,7 +521,6 @@ body {
   text-align: center;
   color: white;
   position: relative;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -631,10 +674,10 @@ body {
     width: 100%;
     max-width: 300px;
   }
-  .steps-grid, .features-grid, .faq-grid {
+  .steps-grid, .features-grid {
     grid-template-columns: 1fr;
   }
-  .step-card, .feature-card, .faq-item {
+  .step-card, .feature-card {
     padding: 30px;
   }
   .section-title {
@@ -662,11 +705,17 @@ body {
   .contact-form {
     padding: 30px;
   }
+  section[id] {
+    scroll-margin-top: 80px;
+  }
 }
 
 @media (max-width: 480px) {
   .container {
     padding: 0 16px;
+  }
+  section[id] {
+    scroll-margin-top: 70px;
   }
   .nav {
     height: 60px;
@@ -711,8 +760,13 @@ body {
   .per-month {
     font-size: 1.2rem;
   }
-  .faq-item h3 {
-    font-size: 1.2rem;
+  .faq-item summary {
+    font-size: 1rem;
+    padding: 16px 20px;
+  }
+  .faq-item p {
+    padding: 0 20px 16px;
+    font-size: 0.95rem;
   }
   .contact-form input, .contact-form textarea {
     padding: 12px 15px;
@@ -806,16 +860,12 @@ body {
   .pricing-card:hover {
     transform: translateY(-10px) scale(1.02);
   }
-  .faq-item:hover {
-    transform: translateY(-5px);
-  }
 }
 
 @media (hover: none) {
   .step-card:hover,
   .feature-card:hover,
-  .pricing-card:hover,
-  .faq-item:hover {
+  .pricing-card:hover {
     transform: none;
   }
 }
@@ -943,34 +993,6 @@ body {
     </div>
   </section>
 
-  <section id="faq" class="faq-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-item animate-on-scroll delay-100">
-          <h3>Does it sound like a real person?</h3>
-          <p>Yes — our advanced AI voices are incredibly natural. Most customers can't tell the difference from a human receptionist.</p>
-        </div>
-        <div class="faq-item animate-on-scroll delay-200">
-          <h3>What if I don't like it?</h3>
-          <p>We offer a free 7-day trial for a reason. If it's not a perfect fit, you can cancel anytime, no questions asked, no contract.</p>
-        </div>
-        <div class="faq-item animate-on-scroll delay-300">
-          <h3>Can it book appointments?</h3>
-          <p>Absolutely! Our AI integrates directly with your existing calendar, booking appointments and sending instant text confirmations to your customers.</p>
-        </div>
-        <div class="faq-item animate-on-scroll delay-100">
-          <h3>What about emergencies?</h3>
-          <p>Our AI is designed to detect urgent situations. In case of an emergency, it will immediately text and/or call your designated contact.</p>
-        </div>
-        <div class="faq-item animate-on-scroll delay-200">
-          <h3>How long does setup take?</h3>
-          <p>We pride ourselves in efficiency and satisfaction. We want to ensure your AI receptionist works best for you; our set up process can take 3-5 days for it to be fully optimized to your needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
   <section id="contact" class="cta-section">
     <div class="container">
       <h2 class="animate-on-scroll">Stop Losing Calls. Start Your Free 7-Day Trial Today.</h2>
@@ -991,6 +1013,34 @@ body {
         <textarea name="message" placeholder="Tell us about your business" aria-label="Tell us about your business"></textarea>
         <button type="submit" class="primary-button">Get Started Now</button>
       </form>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item animate-on-scroll delay-100">
+          <summary>Does it sound like a real person?</summary>
+          <p>Yes — our advanced AI voices are incredibly natural. Most customers can't tell the difference from a human receptionist.</p>
+        </details>
+        <details class="faq-item animate-on-scroll delay-200">
+          <summary>What if I don't like it?</summary>
+          <p>We offer a free 7-day trial for a reason. If it's not a perfect fit, you can cancel anytime, no questions asked, no contract.</p>
+        </details>
+        <details class="faq-item animate-on-scroll delay-100">
+          <summary>Can it book appointments?</summary>
+          <p>Absolutely! Our AI integrates directly with your existing calendar, booking appointments and sending instant text confirmations to your customers.</p>
+        </details>
+        <details class="faq-item animate-on-scroll delay-200">
+          <summary>What about emergencies?</summary>
+          <p>Our AI is designed to detect urgent situations. In case of an emergency, it will immediately text and/or call your designated contact.</p>
+        </details>
+        <details class="faq-item animate-on-scroll delay-100">
+          <summary>How long does setup take?</summary>
+          <p>We pride ourselves in efficiency and satisfaction. We want to ensure your AI receptionist works best for you; our set up process can take 3-5 days for it to be fully optimized to your needs.</p>
+        </details>
+      </div>
     </div>
   </section>
   
