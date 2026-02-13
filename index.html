@@ -8,6 +8,12 @@
   <meta property="og:title" content="ServiceLine AI — Never Miss Another Call">
   <meta property="og:description" content="AI phone receptionist for HVAC, plumbing, electrical, and pest control. 24/7 answering, appointment booking, SMS confirmations. Starting at $250/mo.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://serviceline-ai.pages.dev/">
+  <meta property="og:site_name" content="ServiceLine AI">
+  <link rel="canonical" href="https://serviceline-ai.pages.dev/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ServiceLine AI — Never Miss Another Call">
+  <meta name="twitter:description" content="AI phone receptionist for HVAC, plumbing, electrical, and pest control. 24/7 answering, appointment booking, SMS confirmations. Starting at $250/mo.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <noscript><style>.animate-on-scroll { opacity: 1; transform: none; }</style></noscript>
   <style>
@@ -32,6 +38,10 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 90px;
 }
 
 body {
@@ -128,6 +138,9 @@ body {
 .nav-links a:not(.cta-button):hover::after {
   width: 100%;
 }
+
+.nav-links a.cta-button { color: white; }
+.nav-links a.cta-button:hover { color: white; }
 
 /* Hero */
 .hero {
@@ -420,11 +433,14 @@ body {
 .faq-section {
   padding: 120px 0;
   background-color: var(--bg-secondary);
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 
 .faq-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
 
@@ -461,6 +477,7 @@ body {
   text-align: center;
   color: white;
   position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -827,7 +844,7 @@ body {
 <main class="landing-page">
   <header class="header">
     <nav class="nav container">
-      <div class="logo">ServiceLine AI</div>
+      <a href="#" class="logo" style="text-decoration:none;">ServiceLine AI</a>
       <div class="nav-links">
         <a href="#how-it-works">How It Works</a>
         <a href="#features">Features</a>
@@ -986,15 +1003,35 @@ body {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll animation observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+  // Scroll animation observer with fallback
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    animatedElements.forEach(el => observer.observe(el));
+  } else {
+    animatedElements.forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+
+  // Close mobile menu when clicking nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      if (hamburger && navLinks) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('mobile-open');
       }
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  });
 
   // Form setup
   const form = document.querySelector('.contact-form');
