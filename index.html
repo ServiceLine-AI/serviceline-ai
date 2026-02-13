@@ -14,8 +14,28 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="ServiceLine AI — Never Miss Another Call">
   <meta name="twitter:description" content="AI phone receptionist for HVAC, plumbing, electrical, and pest control. 24/7 answering, appointment booking, SMS confirmations. Starting at $250/mo.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1E3A5F">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <noscript><style>.animate-on-scroll { opacity: 1; transform: none; }</style></noscript>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ServiceLine AI",
+    "description": "24/7 AI phone receptionist for home services businesses. Answers calls, books appointments, and sends text confirmations.",
+    "url": "https://serviceline-ai.pages.dev",
+    "telephone": "+17863845312",
+    "priceRange": "$250/mo",
+    "areaServed": "US",
+    "serviceType": ["AI Phone Receptionist", "Appointment Booking", "SMS Confirmations"],
+    "offers": {
+      "@type": "Offer",
+      "price": "250",
+      "priceCurrency": "USD",
+      "description": "AI phone receptionist starting at $250/month with free 7-day trial"
+    }
+  }
+  </script>
   <style>
 :root {
   --primary-color: hsl(214, 52%, 25%); /* Deep Blue: #1E3A5F */
@@ -57,22 +77,6 @@ body {
   padding: 0 24px;
 }
 
-/* Scroll Animations */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.delay-100 { transition-delay: 0.1s; }
-.delay-200 { transition-delay: 0.2s; }
-.delay-300 { transition-delay: 0.3s; }
-.delay-400 { transition-delay: 0.4s; }
 
 /* Header */
 .header {
@@ -505,14 +509,6 @@ body {
   line-height: 1.6;
 }
 
-.faq-item[open] p {
-  animation: faq-reveal 0.3s ease-out;
-}
-
-@keyframes faq-reveal {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 /* CTA Section */
 .cta-section {
@@ -872,11 +868,6 @@ body {
 
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .animate-on-scroll {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
   .step-icon {
     animation: none;
   }
@@ -910,9 +901,9 @@ body {
   
   <section class="hero">
     <div class="hero-content container">
-      <h1 class="hero-title animate-on-scroll">Never Miss Another Call</h1>
-      <p class="hero-subtitle animate-on-scroll delay-100">AI phone receptionist for home services businesses. Answers 24/7, books appointments, texts confirmations — for less than $9/day.</p>
-      <div class="hero-cta animate-on-scroll delay-200">
+      <h1 class="hero-title">Never Miss Another Call</h1>
+      <p class="hero-subtitle">AI phone receptionist for home services businesses. Answers 24/7, books appointments, texts confirmations — for less than $9/day.</p>
+      <div class="hero-cta">
         <a href="#contact-form" class="primary-button">Start Your Free 7-Day Trial</a>
       </div>
     </div>
@@ -921,19 +912,19 @@ body {
   
   <section id="how-it-works" class="how-it-works">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">How It Works</h2>
+      <h2 class="section-title">How It Works</h2>
       <div class="steps-grid">
-        <div class="step-card animate-on-scroll delay-100">
+        <div class="step-card">
           <div class="step-icon">1</div>
           <h3>We Build Your AI Agent</h3>
           <p>We create a custom AI receptionist trained on your business, services, and local area data.</p>
         </div>
-        <div class="step-card animate-on-scroll delay-200">
+        <div class="step-card">
           <div class="step-icon">2</div>
           <h3>It Answers Your Calls 24/7</h3>
           <p>Every call gets answered professionally, appointments booked, and customers receive text confirmations.</p>
         </div>
-        <div class="step-card animate-on-scroll delay-300">
+        <div class="step-card">
           <div class="step-icon">3</div>
           <h3>You See Everything in Your Dashboard</h3>
           <p>Real-time call logs, transcripts, bookings, and analytics are accessible in your personal portal.</p>
@@ -944,34 +935,34 @@ body {
 
   <section id="features" class="features">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Features Designed for Home Services</h2>
+      <h2 class="section-title">Features Designed for Home Services</h2>
       <div class="features-grid">
-        <div class="feature-card animate-on-scroll delay-100">
+        <div class="feature-card">
           <div class="feature-icon" role="img" aria-label="Clock icon">⏰</div>
           <h3>24/7 Call Answering</h3>
           <p>Never miss a lead again. Your AI receptionist works around the clock, ensuring every call is handled.</p>
         </div>
-        <div class="feature-card animate-on-scroll delay-200">
+        <div class="feature-card">
           <div class="feature-icon" role="img" aria-label="Calendar icon">📅</div>
           <h3>Automatic Appointment Booking</h3>
           <p>Seamlessly integrate with your calendar to book, reschedule, and confirm appointments.</p>
         </div>
-        <div class="feature-card animate-on-scroll delay-300">
+        <div class="feature-card">
           <div class="feature-icon" role="img" aria-label="Chat bubble icon">💬</div>
           <h3>SMS Text Confirmations</h3>
           <p>Keep your customers informed with instant text confirmations for appointments and service updates.</p>
         </div>
-        <div class="feature-card animate-on-scroll delay-100">
+        <div class="feature-card">
           <div class="feature-icon" role="img" aria-label="Chart icon">📊</div>
           <h3>Real-Time Client Dashboard</h3>
           <p>Monitor call activity, access transcripts, and view analytics from your personalized dashboard.</p>
         </div>
-        <div class="feature-card animate-on-scroll delay-200">
+        <div class="feature-card">
           <div class="feature-icon" role="img" aria-label="Brain icon">🧠</div>
           <h3>Enhanced AI Knowledge Base</h3>
           <p>Our AI is trained on your specific business, services, FAQs, and even customer reviews.</p>
         </div>
-        <div class="feature-card animate-on-scroll delay-300">
+        <div class="feature-card">
           <div class="feature-icon" role="img" aria-label="Checkmark icon">✅</div>
           <h3>Free 7-Day Trial</h3>
           <p>Experience the benefits risk-free. No commitment, cancel anytime.</p>
@@ -982,8 +973,8 @@ body {
 
   <section id="pricing" class="pricing-section">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">Simple, Transparent Pricing</h2>
-      <div class="pricing-card animate-on-scroll delay-100">
+      <h2 class="section-title">Simple, Transparent Pricing</h2>
+      <div class="pricing-card">
         <p class="price-tag">Starting at</p>
         <span class="price">$250</span><span class="per-month">/month</span>
         <p class="price-detail">Less than $9/day — 90% cheaper than a traditional receptionist.</p>
@@ -993,12 +984,40 @@ body {
     </div>
   </section>
 
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Does it sound like a real person?</summary>
+          <p>Yes — our advanced AI voices are incredibly natural. Most customers can't tell the difference from a human receptionist.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if I don't like it?</summary>
+          <p>We offer a free 7-day trial for a reason. If it's not a perfect fit, you can cancel anytime, no questions asked, no contract.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can it book appointments?</summary>
+          <p>Absolutely! Our AI integrates directly with your existing calendar, booking appointments and sending instant text confirmations to your customers.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What about emergencies?</summary>
+          <p>Our AI is designed to detect urgent situations. In case of an emergency, it will immediately text and/or call your designated contact.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does setup take?</summary>
+          <p>We pride ourselves in efficiency and satisfaction. We want to ensure your AI receptionist works best for you; our set up process can take 3-5 days for it to be fully optimized to your needs.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section id="contact" class="cta-section">
     <div class="container">
-      <h2 class="animate-on-scroll">Stop Losing Calls. Start Your Free 7-Day Trial Today.</h2>
-      <p class="animate-on-scroll delay-100">Ready to transform your customer service and never miss another opportunity?</p>
-      <p class="contact-info animate-on-scroll delay-200">Call us: <a href="tel:+17863845312">+1 (786) 384-5312</a> or fill out the form below.</p>
-      <form id="contact-form" class="contact-form animate-on-scroll delay-300" action="https://formsubmit.co/juan.londono@aiserviceline.com" method="POST">
+      <h2>Stop Losing Calls. Start Your Free 7-Day Trial Today.</h2>
+      <p>Ready to transform your customer service and never miss another opportunity?</p>
+      <p class="contact-info">Call us: <a href="tel:+17863845312">+1 (786) 384-5312</a> or fill out the form below.</p>
+      <form id="contact-form" class="contact-form" action="https://formsubmit.co/juan.londono@aiserviceline.com" method="POST">
         <input type="hidden" name="_next" id="form-next-url" value="">
         <!-- Formsubmit.co configuration -->
         <input type="hidden" name="_subject" value="New ServiceLine AI Trial Request">
@@ -1015,34 +1034,6 @@ body {
       </form>
     </div>
   </section>
-
-  <section id="faq" class="faq-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">Frequently Asked Questions</h2>
-      <div class="faq-list">
-        <details class="faq-item animate-on-scroll delay-100">
-          <summary>Does it sound like a real person?</summary>
-          <p>Yes — our advanced AI voices are incredibly natural. Most customers can't tell the difference from a human receptionist.</p>
-        </details>
-        <details class="faq-item animate-on-scroll delay-200">
-          <summary>What if I don't like it?</summary>
-          <p>We offer a free 7-day trial for a reason. If it's not a perfect fit, you can cancel anytime, no questions asked, no contract.</p>
-        </details>
-        <details class="faq-item animate-on-scroll delay-100">
-          <summary>Can it book appointments?</summary>
-          <p>Absolutely! Our AI integrates directly with your existing calendar, booking appointments and sending instant text confirmations to your customers.</p>
-        </details>
-        <details class="faq-item animate-on-scroll delay-200">
-          <summary>What about emergencies?</summary>
-          <p>Our AI is designed to detect urgent situations. In case of an emergency, it will immediately text and/or call your designated contact.</p>
-        </details>
-        <details class="faq-item animate-on-scroll delay-100">
-          <summary>How long does setup take?</summary>
-          <p>We pride ourselves in efficiency and satisfaction. We want to ensure your AI receptionist works best for you; our set up process can take 3-5 days for it to be fully optimized to your needs.</p>
-        </details>
-      </div>
-    </div>
-  </section>
   
   <footer class="footer">
     <div class="container">
@@ -1053,24 +1044,6 @@ body {
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Scroll animation observer with fallback
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    animatedElements.forEach(el => observer.observe(el));
-  } else {
-    animatedElements.forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-    });
-  }
-
   // Close mobile menu when clicking nav links
   document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
