@@ -862,7 +862,7 @@ body {
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="#contact-form" class="cta-button">Start Free Trial</a>
+        <a href="#contact" class="cta-button">Start Free Trial</a>
       </div>
       <button class="hamburger" aria-label="Toggle navigation menu" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('mobile-open');">
         <span></span><span></span><span></span>
@@ -875,7 +875,7 @@ body {
       <h1 class="hero-title">Never Miss Another Call</h1>
       <p class="hero-subtitle">AI phone receptionist for home services businesses. Answers 24/7, books appointments, texts confirmations — for less than $9/day.</p>
       <div class="hero-cta">
-        <a href="#contact-form" class="primary-button">Start Your Free 7-Day Trial</a>
+        <a href="#contact" class="primary-button">Start Your Free 7-Day Trial</a>
       </div>
     </div>
     <div class="hero-gradient"></div>
@@ -950,7 +950,7 @@ body {
         <span class="price">$250</span><span class="per-month">/month</span>
         <p class="price-detail">Less than $9/day — 90% cheaper than a traditional receptionist.</p>
         <p class="trial-info">Free 7-day trial, no commitment, cancel anytime.</p>
-        <a href="#contact-form" class="primary-button">Start Free Trial Today</a>
+        <a href="#contact" class="primary-button">Start Free Trial Today</a>
       </div>
     </div>
   </section>
@@ -1033,7 +1033,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set redirect URL back to this page with success flag
     const nextUrl = document.getElementById('form-next-url');
     if (nextUrl) {
-      nextUrl.value = window.location.origin + window.location.pathname + '?submitted=true#contact-form';
+      nextUrl.value = window.location.origin + window.location.pathname + '?submitted=true#contact';
     }
 
     // Show success message if redirected back after submission
@@ -1044,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '<h3 style="color:white;font-size:1.5rem;margin-bottom:12px;">Form Submitted!</h3>' +
         '<p style="color:rgba(255,255,255,0.85);font-size:1.1rem;">Thank you for your interest. We\'ll be in touch shortly.</p>' +
         '</div>';
-      window.history.replaceState({}, '', window.location.pathname + '#contact-form');
+      window.history.replaceState({}, '', window.location.pathname + '#contact');
     }
 
     // Loading state on submit
